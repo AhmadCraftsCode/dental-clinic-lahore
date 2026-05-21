@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mint: #e8f4f8;
+  --color-navy: #0d1b3e;
+  --color-coral: #f4845f;
+  --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-inter), Inter, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-mint);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.section-pad {
+  @apply px-6 py-20 md:px-10 lg:px-16 lg:py-28;
+}
+
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+/* Hero visual panel patterns */
+.visual-pattern-dots {
+  background-image: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.2) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 14px 14px;
+}
+
+.visual-pattern-grid {
+  background-image:
+    linear-gradient(rgba(13, 27, 62, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 27, 62, 0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.visual-pattern-waves {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q15 20 30 30 T60 30' fill='none' stroke='rgba(255%2C255%2C255%2C0.25)' stroke-width='1.5'/%3E%3Cpath d='M0 45 Q15 35 30 45 T60 45' fill='none' stroke='rgba(255%2C255%2C255%2C0.15)' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+.visual-pattern-cross {
+  background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 8px,
+      rgba(13, 27, 62, 0.04) 8px,
+      rgba(13, 27, 62, 0.04) 9px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 8px,
+      rgba(13, 27, 62, 0.04) 8px,
+      rgba(13, 27, 62, 0.04) 9px
+    );
+}
