@@ -22,8 +22,13 @@ body {
   font-family: var(--font-serif);
 }
 
+/* Consistent section spacing */
 .section-pad {
-  @apply px-6 py-20 md:px-10 lg:px-16 lg:py-28;
+  @apply px-5 py-16 sm:px-6 sm:py-20 md:px-10 md:py-24 lg:px-16 lg:py-28;
+}
+
+.section-hero {
+  @apply px-5 pt-12 pb-16 sm:px-6 sm:pt-14 sm:pb-20 md:px-10 md:pt-16 md:pb-24 lg:px-16 lg:pt-20 lg:pb-28;
 }
 
 .grain::before {
@@ -31,68 +36,59 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   z-index: 0;
 }
 
-/* Hero clinic background overlay */
-.hero-gradient-overlay {
-  background: linear-gradient(
-    135deg,
-    rgba(13, 27, 62, 0.55) 0%,
-    rgba(13, 27, 62, 0.2) 40%,
-    rgba(232, 244, 248, 0.15) 70%,
-    rgba(244, 132, 95, 0.12) 100%
-  );
+/* Navbar book link */
+.nav-book-link {
+  @apply text-[13px] font-medium tracking-wide text-navy/80 underline-offset-4 transition hover:text-coral hover:underline;
 }
 
 /* Buttons */
 .btn-primary {
-  @apply inline-block bg-coral px-7 py-3.5 text-sm font-semibold tracking-[0.18em] text-white uppercase shadow-md transition duration-300 hover:bg-navy hover:shadow-lg;
+  @apply inline-block bg-coral px-6 py-3 text-sm font-semibold tracking-[0.16em] text-white uppercase shadow-md transition duration-300 ease-out hover:bg-navy hover:shadow-lg sm:px-7 sm:py-3.5;
 }
 
 /* Service price emphasis */
 .price-tag {
-  @apply text-base font-bold tracking-wide text-coral md:text-lg;
+  @apply text-base font-bold tracking-wide text-coral sm:text-lg;
 }
 
 /* Testimonial cards */
 .testimonial-card {
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(232, 244, 248, 0.6) 100%
-  );
-  border: 1px solid rgba(13, 27, 62, 0.08);
-  box-shadow: 0 4px 24px rgba(13, 27, 62, 0.04);
-  transition: box-shadow 0.35s ease, transform 0.35s ease;
+  background-color: #f8f9fa;
+  border: 1px solid rgba(13, 27, 62, 0.06);
+  box-shadow: 0 2px 12px rgba(13, 27, 62, 0.04);
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
 }
 
 .testimonial-card:hover {
-  box-shadow: 0 12px 40px rgba(13, 27, 62, 0.08);
+  box-shadow: 0 8px 28px rgba(13, 27, 62, 0.07);
   transform: translateY(-2px);
 }
 
 .quote-mark {
   position: absolute;
-  top: 1rem;
-  left: 1.25rem;
+  top: 0.875rem;
+  left: 1rem;
 }
 
 /* Premium footer */
 .footer-premium {
   background: linear-gradient(180deg, #ffffff 0%, #f4fafc 100%);
-  box-shadow: 0 -1px 0 rgba(13, 27, 62, 0.06);
 }
 
 /* Scroll reveal */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(24px);
   transition:
-    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .scroll-reveal--visible {
@@ -111,7 +107,7 @@ body {
 }
 
 .marquee-track {
-  animation: marquee-scroll 35s linear infinite;
+  animation: marquee-scroll 40s linear infinite;
 }
 
 .marquee-track:hover {
@@ -123,19 +119,24 @@ body {
   0%,
   100% {
     box-shadow:
-      0 0 0 0 rgba(37, 211, 102, 0.45),
-      0 4px 14px rgba(13, 27, 62, 0.15);
+      0 0 0 0 rgba(37, 211, 102, 0.4),
+      0 3px 12px rgba(13, 27, 62, 0.12);
   }
   50% {
     box-shadow:
-      0 0 0 12px rgba(37, 211, 102, 0),
-      0 0 24px rgba(37, 211, 102, 0.55),
-      0 6px 20px rgba(13, 27, 62, 0.2);
+      0 0 0 10px rgba(37, 211, 102, 0),
+      0 0 20px rgba(37, 211, 102, 0.5),
+      0 4px 16px rgba(13, 27, 62, 0.15);
   }
 }
 
 .whatsapp-pulse {
   animation: whatsapp-glow 2.5s ease-in-out infinite;
+}
+
+/* Service hover */
+.service-item {
+  will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -153,7 +154,8 @@ body {
     animation: none;
   }
 
-  .service-item:hover {
+  .service-item:hover,
+  .testimonial-card:hover {
     transform: none;
   }
 }

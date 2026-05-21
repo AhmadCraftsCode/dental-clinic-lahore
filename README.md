@@ -1,8 +1,10 @@
-# Lahore Smile Center
+# Smile Studio — Dental Clinic Demo
 
-Dental clinic marketing site — Next.js App Router + Tailwind CSS v4.
+Premium dental clinic website built with Next.js 15 + Tailwind CSS v4.
 
-## Develop
+## Rebrand any clinic in one file
+
+**Edit `src/config/clinic.ts`** — change clinic name, doctor, phone, services, prices, and more. The entire site updates automatically.
 
 ```bash
 npm install
@@ -11,20 +13,20 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Home page sections
-
-- Navbar (sticky, WhatsApp CTA)
-- Asymmetric hero with illustrated visual panels (icons + patterns)
-- Services (editorial list, PKR prices)
-- Why choose us
-- Testimonials
-- Contact CTA + footer
-- Floating WhatsApp button (all pages via layout)
-
 ## Required images
 
-Add these files to `public/`:
+Place in `public/`:
 
-- `doctor.jpg` — Dr. Ahmed Raza portrait
-- `clinic.jpg` — clinic interior (hero background)
-- `patient.jpg` — patient photo (hero accent + Why Choose Us)
+- `doctor.jpg` — lead dentist portrait (hero, 3:4 ratio)
+- `clinic.jpg` — clinic interior (hero accent card)
+- `patient.jpg` — patient photo (testimonials section)
+
+## Sections
+
+- Hero with clean image layout (no overlap)
+- Marquee trust strip
+- Services with hover effects
+- Why choose us
+- Testimonials with patient photo
+- Contact CTA + footer
+- Round WhatsApp button with pulse

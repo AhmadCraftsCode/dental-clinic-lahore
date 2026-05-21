@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { seo } from "@/config/clinic";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
 
@@ -16,9 +17,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Lahore Smile Center | Dental Clinic in DHA Phase 5",
-  description:
-    "PMDC-registered dental care by Dr. Ahmed Raza in DHA Phase 5, Lahore. Book appointments via WhatsApp.",
+  title: seo.title,
+  description: seo.description,
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="grain antialiased">
+      <body className="grain antialiased overflow-x-hidden">
         {children}
         <WhatsAppButton />
       </body>

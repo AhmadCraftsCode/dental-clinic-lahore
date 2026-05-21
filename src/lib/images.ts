@@ -1,14 +1,16 @@
+import { clinic, images as imagePaths } from "@/config/clinic";
+
 export const images = {
   doctor: {
-    src: "/doctor.jpg",
-    alt: "Dr. Ahmed Raza, PMDC-registered dentist at Lahore Smile Center",
+    src: imagePaths.doctor,
+    alt: `${clinic.doctorName}, ${clinic.pmdc} dentist at ${clinic.clinicName}`,
   },
   clinic: {
-    src: "/clinic.jpg",
-    alt: "Modern dental clinic interior at DHA Phase 5, Lahore",
+    src: imagePaths.clinic,
+    alt: `${clinic.clinicName} — modern dental clinic in ${clinic.area}, ${clinic.city}`,
   },
   patient: {
-    src: "/patient.jpg",
-    alt: "Happy patient at Lahore Smile Center",
+    src: imagePaths.patient,
+    alt: `Happy patient at ${clinic.clinicName}`,
   },
 } as const;

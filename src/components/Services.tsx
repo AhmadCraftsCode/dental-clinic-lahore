@@ -1,50 +1,51 @@
-import { services, whatsappBookUrl } from "@/lib/site";
+import { services, whatsappBookUrl } from "@/config/clinic";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Services() {
   return (
     <section
       id="services"
-      className="section-pad border-t border-navy/8 bg-white/50"
+      className="section-pad border-t border-navy/8 bg-white/40"
     >
       <ScrollReveal>
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div className="grid gap-6 sm:gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-5">
               <p className="text-xs tracking-[0.25em] text-coral uppercase">
                 Services
               </p>
-              <h2 className="mt-3 font-serif text-4xl text-navy md:text-5xl lg:text-[3.25rem]">
+              <h2 className="mt-3 font-serif text-3xl text-navy sm:text-4xl md:text-5xl">
                 Care tailored to your smile.
               </h2>
             </div>
-            <p className="text-base leading-relaxed text-navy/70 lg:col-span-6 lg:col-start-7">
-              From routine checkups to cosmetic transformations — every treatment
-              plan is explained clearly with PKR estimates before you proceed.
+            <p className="text-sm leading-relaxed text-navy/70 sm:text-base lg:col-span-6 lg:col-start-7">
+              From routine checkups to cosmetic transformations — every
+              treatment plan is explained clearly with PKR estimates before you
+              proceed.
             </p>
           </div>
 
-          <ul className="mt-14 space-y-0">
+          <ul className="mt-12 space-y-0 sm:mt-14">
             {services.map((service, i) => (
               <li
-                key={service.title}
-                className="service-item group grid gap-4 border-t border-navy/10 py-8 transition-all duration-300 hover:-translate-y-0.5 hover:border-coral/30 hover:bg-white/80 md:grid-cols-12 md:items-start md:gap-6 md:px-4 md:py-9"
+                key={service.name}
+                className="service-item group grid gap-3 border-t border-navy/10 py-7 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-coral/25 hover:bg-[#fafbfc] sm:grid-cols-12 sm:items-start sm:gap-5 sm:py-8 md:px-3 md:py-9"
               >
-                <span className="font-serif text-2xl text-navy/25 transition-colors group-hover:text-coral/50 md:col-span-1">
+                <span className="font-serif text-xl text-navy/25 transition-colors duration-300 group-hover:text-coral/45 sm:col-span-1 sm:text-2xl">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <div className="md:col-span-5">
-                  <h3 className="font-serif text-2xl text-navy transition-colors group-hover:text-coral md:text-[1.65rem]">
-                    {service.title}
+                <div className="sm:col-span-6">
+                  <h3 className="font-serif text-xl text-navy transition-colors duration-300 group-hover:text-coral sm:text-2xl">
+                    {service.name}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-navy/65 transition-colors group-hover:text-navy/80">
+                  <p className="mt-2 text-sm leading-relaxed text-navy/65">
                     {service.description}
                   </p>
                 </div>
-                <p className="price-tag md:col-span-3 md:text-right">
+                <p className="price-tag sm:col-span-2 sm:text-right">
                   {service.price}
                 </p>
-                <div className="md:col-span-3 md:text-right">
+                <div className="sm:col-span-3 sm:text-right">
                   <a
                     href={whatsappBookUrl()}
                     target="_blank"
