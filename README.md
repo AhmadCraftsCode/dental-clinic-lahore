@@ -21,6 +21,10 @@ Open [http://localhost:3000](http://localhost:3000).
 - Contact CTA + footer
 - Floating WhatsApp button (all pages via layout)
 
-## Replace hero visuals with photos
+## Required images
 
-Add images under `public/` and update `HeroVisual.tsx` (or swap panels in `Hero.tsx`) to use `next/image` when ready.
+Add these files to `public/`:
+
+- `doctor.jpg` — Dr. Ahmed Raza portrait
+- `clinic.jpg` — clinic interior (hero background)
+- `patient.jpg` — patient photo (hero accent + Why Choose Us)

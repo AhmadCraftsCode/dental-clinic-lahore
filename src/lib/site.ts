@@ -92,6 +92,15 @@ export const testimonials = [
   },
 ] as const;
 
+export const marqueeItems = [
+  "PMDC Registered",
+  "DHA Phase 5",
+  "WhatsApp Booking",
+  "Transparent Pricing",
+  "15+ Years Experience",
+  "Lahore's Trusted Clinic",
+] as const;
+
 export function whatsappBookUrl() {
   return `${site.whatsappUrl}?text=${site.whatsappMessage}`;
 }

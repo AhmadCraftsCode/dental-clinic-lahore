@@ -31,46 +31,129 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.04;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   z-index: 0;
 }
 
-/* Hero visual panel patterns */
-.visual-pattern-dots {
-  background-image: radial-gradient(
-    circle at center,
-    rgba(255, 255, 255, 0.2) 1.5px,
-    transparent 1.5px
+/* Hero clinic background overlay */
+.hero-gradient-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(13, 27, 62, 0.55) 0%,
+    rgba(13, 27, 62, 0.2) 40%,
+    rgba(232, 244, 248, 0.15) 70%,
+    rgba(244, 132, 95, 0.12) 100%
   );
-  background-size: 14px 14px;
 }
 
-.visual-pattern-grid {
-  background-image:
-    linear-gradient(rgba(13, 27, 62, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(13, 27, 62, 0.06) 1px, transparent 1px);
-  background-size: 18px 18px;
+/* Buttons */
+.btn-primary {
+  @apply inline-block bg-coral px-7 py-3.5 text-sm font-semibold tracking-[0.18em] text-white uppercase shadow-md transition duration-300 hover:bg-navy hover:shadow-lg;
 }
 
-.visual-pattern-waves {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q15 20 30 30 T60 30' fill='none' stroke='rgba(255%2C255%2C255%2C0.25)' stroke-width='1.5'/%3E%3Cpath d='M0 45 Q15 35 30 45 T60 45' fill='none' stroke='rgba(255%2C255%2C255%2C0.15)' stroke-width='1.5'/%3E%3C/svg%3E");
-  background-size: 60px 60px;
+/* Service price emphasis */
+.price-tag {
+  @apply text-base font-bold tracking-wide text-coral md:text-lg;
 }
 
-.visual-pattern-cross {
-  background-image: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 8px,
-      rgba(13, 27, 62, 0.04) 8px,
-      rgba(13, 27, 62, 0.04) 9px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 8px,
-      rgba(13, 27, 62, 0.04) 8px,
-      rgba(13, 27, 62, 0.04) 9px
-    );
+/* Testimonial cards */
+.testimonial-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(232, 244, 248, 0.6) 100%
+  );
+  border: 1px solid rgba(13, 27, 62, 0.08);
+  box-shadow: 0 4px 24px rgba(13, 27, 62, 0.04);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.testimonial-card:hover {
+  box-shadow: 0 12px 40px rgba(13, 27, 62, 0.08);
+  transform: translateY(-2px);
+}
+
+.quote-mark {
+  position: absolute;
+  top: 1rem;
+  left: 1.25rem;
+}
+
+/* Premium footer */
+.footer-premium {
+  background: linear-gradient(180deg, #ffffff 0%, #f4fafc 100%);
+  box-shadow: 0 -1px 0 rgba(13, 27, 62, 0.06);
+}
+
+/* Scroll reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Marquee */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 35s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* WhatsApp pulse glow */
+@keyframes whatsapp-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(37, 211, 102, 0.45),
+      0 4px 14px rgba(13, 27, 62, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 0 0 12px rgba(37, 211, 102, 0),
+      0 0 24px rgba(37, 211, 102, 0.55),
+      0 6px 20px rgba(13, 27, 62, 0.2);
+  }
+}
+
+.whatsapp-pulse {
+  animation: whatsapp-glow 2.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+
+  .whatsapp-pulse {
+    animation: none;
+  }
+
+  .service-item:hover {
+    transform: none;
+  }
 }
